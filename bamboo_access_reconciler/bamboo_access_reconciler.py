@@ -8,6 +8,8 @@ import time
 import datetime
 import re
 
+from bamboo_access import BambooAccess
+
 from atlassian import Bamboo as bamboo
 
 class BambooAccessReconciler:
@@ -277,3 +279,158 @@ if __name__ == '__main__':
     bamboo_access_reconciler.write_permissions_diff_df_yaml('permissions_diff.yaml')
     bamboo_access_reconciler.write_permissions_diff_df_yaml_added('permissions_diff_added.yaml')
     bamboo_access_reconciler.write_permissions_diff_df_yaml_removed('permissions_diff_removed.yaml')
+
+"""
+The desired permissions file is a YAML file that contains the desired permissions for the Bamboo instance. The desired permissions file is structured as follows:
+
+global_permissions:
+  - name: <user or group name>
+    permissions:
+      - <permission name>
+  - name: <user or group name>
+    permissions:
+      - <permission name>
+build_plan_permissions:
+  - name: <build plan name>
+    permissions:
+      - name: <user or group name>
+        permissions:
+          - <permission name>
+      - name: <user or group name>
+        permissions:
+          - <permission name>
+project_permissions:
+  - name: <project name>
+    permissions:
+      - name: <user or group name>
+        permissions:
+          - <permission name>
+      - name: <user or group name>
+        permissions:
+          - <permission name>
+deployment_permissions:
+  - name: <deployment name>
+    permissions:
+      - name: <user or group name>
+        permissions:
+          - <permission name>
+      - name: <user or group name>
+        permissions:
+          - <permission name>
+deployment_project_permissions:
+  - name: <deployment project name>
+    permissions:
+      - name: <user or group name>
+        permissions:
+          - <permission name>
+      - name: <user or group name>
+        permissions:
+          - <permission name>
+deployment_environment_permissions:
+  - name: <deployment environment name>
+    permissions:
+      - name: <user or group name>
+        permissions:
+          - <permission name>
+      - name: <user or group name>
+        permissions:
+          - <permission name>
+
+The following is an example of a desired permissions file:
+
+global_permissions:
+  - name: admin
+    permissions:
+      - ADMINISTER
+      - BUILD
+      - CLONE
+      - EDIT
+      - VIEW
+  - name: jdoe
+    permissions:
+      - BUILD
+      - CLONE
+      - EDIT
+      - VIEW
+build_plan_permissions:
+  - name: BUILD-PLAN-1
+    permissions:
+      - name: admin
+        permissions:
+          - ADMINISTER
+          - BUILD
+          - CLONE
+          - EDIT
+          - VIEW
+      - name: jdoe
+        permissions:
+          - BUILD
+          - CLONE
+          - EDIT
+          - VIEW
+project_permissions:
+  - name: PROJECT-1
+    permissions:
+      - name: admin
+        permissions:
+          - ADMINISTER
+          - BUILD
+          - CLONE
+          - EDIT
+          - VIEW
+      - name: jdoe
+        permissions:
+          - BUILD
+          - CLONE
+          - EDIT
+          - VIEW
+deployment_permissions:
+  - name: DEPLOYMENT-1
+    permissions:
+      - name: admin
+        permissions:
+          - ADMINISTER
+          - BUILD
+          - CLONE
+          - EDIT
+          - VIEW
+      - name: jdoe
+        permissions:
+          - BUILD
+          - CLONE
+          - EDIT
+          - VIEW
+deployment_project_permissions:
+  - name: DEPLOYMENT-PROJECT-1
+    permissions:
+      - name: admin
+        permissions:
+          - ADMINISTER
+          - BUILD
+          - CLONE
+          - EDIT
+          - VIEW
+      - name: jdoe
+        permissions:
+          - BUILD
+          - CLONE
+          - EDIT
+          - VIEW
+deployment_environment_permissions:
+  - name: DEPLOYMENT-ENVIRONMENT-1
+    permissions:
+      - name: admin
+        permissions:
+          - ADMINISTER
+          - BUILD
+          - CLONE
+          - EDIT
+          - VIEW
+      - name: jdoe
+        permissions:
+          - BUILD
+          - CLONE
+          - EDIT
+          - VIEW
+
+"""

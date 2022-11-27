@@ -1,0 +1,95 @@
+---
+global_permissions:
+  - name: admin
+    permissions:
+      - ADMINISTER
+      - BUILD
+      - CLONE
+      - EDIT
+      - VIEW
+  - name: jdoe
+    permissions:
+      - BUILD
+      - CLONE
+      - EDIT
+      - VIEW
+build_plan_permissions:
+  - name: BUILD-PLAN-1
+    permissions:
+      - name: admin
+        permissions:
+          - ADMINISTER
+          - BUILD
+          - CLONE
+          - EDIT
+          - VIEW
+      - name: jdoe
+        permissions:
+          - BUILD
+          - CLONE
+          - EDIT
+          - VIEW
+project_permissions:
+  - name: PROJECT-1
+    permissions:
+      - name: admin
+        permissions:
+          - ADMINISTER
+          - BUILD
+          - CLONE
+          - EDIT
+          - VIEW
+      - name: jdoe
+        permissions:
+          - BUILD
+          - CLONE
+          - EDIT
+          - VIEW
+deployment_permissions:
+  - name: DEPLOYMENT-1
+    permissions:
+      - name: admin
+        permissions:
+          - ADMINISTER
+          - BUILD
+          - CLONE
+          - EDIT
+          - VIEW
+      - name: jdoe
+        permissions:
+          - BUILD
+          - CLONE
+          - EDIT
+          - VIEW
+deployment_project_permissions:
+  - name: DEPLOYMENT-PROJECT-1
+    permissions:
+      - name: admin
+        permissions:
+          - ADMINISTER
+          - BUILD
+          - CLONE
+          - EDIT
+          - VIEW
+      - name: jdoe
+        permissions:
+          - BUILD
+          - CLONE
+          - EDIT
+          - VIEW
+deployment_environment_permissions:
+  - name: DEPLOYMENT-ENVIRONMENT-1
+    permissions:
+      - name: admin
+        permissions:
+          - ADMINISTER
+          - BUILD
+          - CLONE
+          - EDIT
+          - VIEW
+      - name: jdoe
+        permissions:
+          - BUILD
+          - CLONE
+          - EDIT
+          - VIEW
